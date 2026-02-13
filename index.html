@@ -124,7 +124,7 @@ cursor:pointer;
 
 <div class="timeline-step">• Region / Server Migration Conflict</div>
 <div class="timeline-step">• Identity Verification Inconsistency</div>
-<div class="timeline-step">• AML Screening Trigger (Simulation)</div>
+<div class="timeline-step">• AML Screening Trigger</div>
 <div class="timeline-step">• Duplicate Account Pattern Detection</div>
 </div>
 
@@ -162,10 +162,10 @@ addLog("Scanning transaction history...");
 setTimeout(()=>{ addLog("Cross-verifying identity documents..."); },800);
 setTimeout(()=>{ addLog("Performing AML risk assessment..."); },1600);
 setTimeout(()=>{ addLog("Analyzing server migration metadata..."); },2400);
-setTimeout(()=>{ addLog("Risk score calculated: LOW (Simulation)"); },3200);
+setTimeout(()=>{ addLog("Risk score calculated: High"); },3200);
 setTimeout(()=>{ 
 addLog("Case eligible for resolution.");
-document.querySelector(".status").innerHTML="Case Cleared (Simulation)";
+document.querySelector(".status").innerHTML="Case Cleared";
 document.querySelector(".status").classList.remove("yellow");
 document.querySelector(".status").classList.add("green");
 },4200);
