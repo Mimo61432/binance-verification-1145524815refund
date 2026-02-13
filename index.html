@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Compliance Resolution Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+background:radial-gradient(circle at top,#1b1f2a,#0b0f17);
+color:#e6e6e6;
+}
+
+.container{
+max-width:480px;
+margin:auto;
+padding:40px 20px;
+}
+
+h1{
+font-size:22px;
+margin-bottom:6px;
+}
+
+.tag{
+font-size:11px;
+color:#ffcc66;
+margin-bottom:18px;
+}
+
+.box{
+background:rgba(255,255,255,0.04);
+padding:18px;
+border-radius:14px;
+margin-top:18px;
+}
+
+.label{
+font-size:12px;
+color:#9aa0ad;
+}
+
+.amount{
+font-size:18px;
+font-weight:600;
+margin-top:6px;
+}
+
+.status{
+margin-top:8px;
+font-weight:600;
+}
+
+.green{ color:#7CFF9B; }
+.yellow{ color:#ffcc66; }
+.red{ color:#ff7c7c; }
+
+.timeline-step{
+margin-top:10px;
+font-size:14px;
+}
+
+.log{
+font-family:monospace;
+font-size:12px;
+background:#11151f;
+padding:12px;
+border-radius:8px;
+margin-top:10px;
+color:#7CFF9B;
+max-height:120px;
+overflow:auto;
+}
+
+button{
+width:100%;
+margin-top:16px;
+padding:14px;
+border:none;
+border-radius:10px;
+background:#f0b90b;
+font-weight:600;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Compliance Resolution Dashboard</h1>
+<div class="tag">Real World Environment</div>
+
+<!-- Case Overview -->
+<div class="box">
+<div class="label">Case ID</div>
+<div class="amount">SIM-CASE-1024</div>
+
+<div class="label" style="margin-top:10px;">Review Status</div>
+<div class="status yellow">Under Compliance Evaluation</div>
+</div>
+
+<!-- Payment Summary -->
+<div class="box">
+<div class="label">Payment Summary</div>
+
+<div style="margin-top:10px;">
+<div class="amount">45 USDT</div>
+<div class="status green">Completed(11:00a.m.)</div>
+</div>
+
+<div style="margin-top:14px;">
+<div class="amount">330 USDT</div>
+<div class="status yellow">Pending (01:30hours Left)</div>
+</div>
+</div>
+
+<!-- Compliance Flags -->
+<div class="box">
+<div class="label">Compliance Flags</div>
+
+<div class="timeline-step">• Region / Server Migration Conflict</div>
+<div class="timeline-step">• Identity Verification Inconsistency</div>
+<div class="timeline-step">• AML Screening Trigger (Simulation)</div>
+<div class="timeline-step">• Duplicate Account Pattern Detection</div>
+</div>
+
+<!-- System Activity Log -->
+<div class="box">
+<div class="label">System Activity Log</div>
+
+<div class="log" id="log">
+Initializing compliance scan...
+</div>
+</div>
+
+<!-- Resolution -->
+<div class="box">
+<div class="label">Resolution Action</div>
+<div class="status">Awaiting Automated Decision Engine</div>
+
+<button onclick="simulateDecision()">Run Decision Engine</button>
+</div>
+
+</div>
+
+<script>
+
+let logBox = document.getElementById("log");
+
+function addLog(text){
+logBox.innerHTML += "<br>" + text;
+logBox.scrollTop = logBox.scrollHeight;
+}
+
+function simulateDecision(){
+
+addLog("Scanning transaction history...");
+setTimeout(()=>{ addLog("Cross-verifying identity documents..."); },800);
+setTimeout(()=>{ addLog("Performing AML risk assessment..."); },1600);
+setTimeout(()=>{ addLog("Analyzing server migration metadata..."); },2400);
+setTimeout(()=>{ addLog("Risk score calculated: LOW (Simulation)"); },3200);
+setTimeout(()=>{ 
+addLog("Case eligible for resolution.");
+document.querySelector(".status").innerHTML="Case Cleared (Simulation)";
+document.querySelector(".status").classList.remove("yellow");
+document.querySelector(".status").classList.add("green");
+},4200);
+
+}
+
+</script>
+
+</body>
+</html>
